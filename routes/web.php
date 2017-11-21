@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -27,4 +28,18 @@ Route::get('/kantinpojok/{makanan}/{minuman}/{cemilan}',
 //route optional parameter
 Route::get('user/{nama?}',function($a = "<h1>Dadang Conelo</h1>"){
 	return $a;
+});
+//tes akses model
+Route::get('test',function(){
+	$a =App\PostModel::all();
+	return $a;
+});
+Route::get('test',function(){
+	$a =App\PostModel::find(0);
+	return $a;
+});
+Route::get('test',function(){
+	$a =App\PostModel::where('umur','17')->get();
+	$b =App\PostModel::where('umur','16')->get();
+	return $a.$b;
 });
